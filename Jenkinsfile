@@ -1,5 +1,4 @@
-pipeline {
-    agent any
+istages {
 
     environment {
         VENV_DIR = "venv"
@@ -60,14 +59,34 @@ pipeline {
         '''
     }
 }
+    stage('Checkout Code') {
+        steps {
+            echo '📥 Pulling code from GitHub...'
+            git branch: 'main',
+                url: 'https://github.com/rsrr82792-glitch/django-todoapp.git',
+                credentialsId: 'github-token'
+        }
+ 347b68c (Replaced Jenkinsfile with new CI/CD pipeline)
     }
 
-    post {
-        success {
-            echo '✅ Build Successful! Django app is running on port 8000'
-        }
-        failure {
-            echo '❌ Build Failed. Check the Jenkins console log for details.'
+    stage('Build & Deploy') {
+        steps {
+            sh '''
+            echo "🧹 Cleaning old Django process..."
+            pkill -f "manage.py runserver" || true
+
+            echo "🐍 Installing dependencies..."
+            pip install -r requirements.txt
+
+            echo "🗄️ Running migrations..."
+            python3 manage.py migrate
+
+            echo "🎨 Collecting static files..."
+            python3 manage.py collectstatic --noinput
+
+            echo "🚀 Starting Django server on port 8001..."
+            nohup python3 manage.py runserver 0.0.0.0:8001 &
+            '''
         }
     }
 }
