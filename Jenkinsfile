@@ -10,7 +10,12 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                echo '📥 Pulling code from GitHub...'
+                echo '📥 Pulling latest code from GitHub (clean checkout)...'
+
+                // ✅ This line clears old cached files before pulling new code
+                deleteDir()
+
+                // ✅ Always fetch fresh code from GitHub
                 git branch: 'main',
                     url: 'https://github.com/rsrr82792-glitch/django-todoapp.git',
                     credentialsId: 'github-token'
@@ -63,4 +68,3 @@ pipeline {
         }
     }
 }
-
