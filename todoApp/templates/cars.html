@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Showroom | Rahul Motors 🚗</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+    }
+    header {
+      background: #1e1e1e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .card-content h3 {
+      margin-bottom: 5px;
+      color: #0078d7;
+    }
+    footer {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚘 Rahul Motors - Explore Your Dream Cars</h1>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/audi-1868752_1280.jpg" alt="Audi">
+      <div class="card-content">
+        <h3>Audi R8</h3>
+        <p>Price: ₹2.72 Crore</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/ferrari-1951317_1280.jpg" alt="Ferrari">
+      <div class="card-content">
+        <h3>Ferrari F8</h3>
+        <p>Price: ₹4.02 Crore</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/04/01/11/38/mercedes-1307990_1280.png" alt="Mercedes">
+      <div class="card-content">
+        <h3>Mercedes AMG GT</h3>
+        <p>Price: ₹2.15 Crore</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/12/20/14/58/lamborghini-1927237_1280.jpg" alt="Rolls Royce">
+      <div class="card-content">
+        <h3>Rolls Royce</h3>
+        <p>Price: ₹11.22 Crore</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Rahul Motors | All Rights Reserved for new users</p>
+  </footer>
+</body>
+</html>
+
