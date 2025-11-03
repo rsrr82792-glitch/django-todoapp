@@ -12,10 +12,10 @@ pipeline {
             steps {
                 echo '📥 Pulling latest code from GitHub (clean checkout)...'
 
-                // ✅ This line clears old cached files before pulling new code
+                // ✅ Always remove old workspace to avoid cached files
                 deleteDir()
 
-                // ✅ Always fetch fresh code from GitHub
+                // ✅ Pull latest code
                 git branch: 'main',
                     url: 'https://github.com/rsrr82792-glitch/django-todoapp.git',
                     credentialsId: 'github-token'
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Run Migrations') {
             steps {
-                echo '🗄️  Applying Django migrations...'
+                echo '🗄️ Applying Django migrations...'
                 sh '''
                     source $VENV_DIR/bin/activate
                     $PYTHON manage.py migrate
@@ -56,13 +56,18 @@ pipeline {
             }
         }
 
-        stage('Start Django Server') {
+        stage('Restart Django Server') {
             steps {
-                echo "🚀 Starting Django development server (for test)..."
+                echo "🚀 Restarting Django development server..."
                 sh '''
+                    echo "🔍 Stopping old Django process..."
                     pkill -f "manage.py runserver" || true
+                    sleep 3
+                    echo "▶️ Starting new Django server..."
                     source venv/bin/activate
-                    nohup python3 manage.py runserver 0.0.0.0:8001 &
+                    nohup python3 manage.py runserver 0.0.0.0:8001 > server.log 2>&1 &
+                    sleep 5
+                    echo "✅ Django server restarted successfully!"
                 '''
             }
         }
