@@ -1,3 +1,11 @@
 nohup: ignoring input
 Watching for file changes with StatReloader
-Error: That port is already in use.
+[03/Nov/2025 05:38:19] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 05:38:23] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:05:04] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:05:05] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:05:07] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:19:32] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:19:34] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:19:44] "GET / HTTP/1.1" 200 66
+[03/Nov/2025 06:19:46] "GET / HTTP/1.1" 200 66
