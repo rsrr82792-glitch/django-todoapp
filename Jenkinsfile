@@ -52,14 +52,14 @@ pipeline {
         }
 
         stage('Start Django Server') {
-            steps {
-                echo '🚀 Starting Django development server (for test)...'
-                sh '''
-                    source $VENV_DIR/bin/activate
-                    nohup $PYTHON manage.py runserver 0.0.0.0:8000 &
-                '''
-            }
-        }
+    steps {
+        echo "🚀 Starting Django development server (for test)..."
+        sh '''
+        source venv/bin/activate
+        nohup python3 manage.py runserver 0.0.0.0:8001
+        '''
+    }
+}
     }
 
     post {
