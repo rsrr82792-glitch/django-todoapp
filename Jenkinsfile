@@ -7,13 +7,12 @@ pipeline {
     }
 
     stages {
-
         stage('Checkout Code') {
             steps {
                 echo '📥 Pulling latest code from GitHub (clean checkout)...'
 
-                // ✅ Always remove old workspace to avoid cached files
-                deleteDir()
+                // ✅ safer cleanup (no permission issue)
+                sh 'rm -rf * || true'
 
                 // ✅ Pull latest code
                 git branch: 'main',
@@ -56,7 +55,6 @@ pipeline {
             }
         }
 
-        // ✅ Updated Stage
         stage('Restart Django Server') {
             steps {
                 echo "🚀 Restarting Django development server..."
@@ -66,7 +64,7 @@ pipeline {
                     sleep 3
 
                     echo "📂 Moving to project directory..."
-                    cd /root/todoapp   # 👈 अपने Django प्रोजेक्ट का सही path यहाँ रख (currently सही है)
+                    cd /root/todoapp   # 👈 अपने Django प्रोजेक्ट का सही path यहाँ रखो
 
                     echo "▶️ Starting new Django server..."
                     source venv/bin/activate
@@ -78,3 +76,4 @@ pipeline {
         }
     }
 }
+
