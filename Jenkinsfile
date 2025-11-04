@@ -56,6 +56,7 @@ pipeline {
             }
         }
 
+        // ✅ Updated Stage
         stage('Restart Django Server') {
             steps {
                 echo "🚀 Restarting Django development server..."
@@ -63,6 +64,10 @@ pipeline {
                     echo "🔍 Stopping old Django process..."
                     pkill -f "manage.py runserver" || true
                     sleep 3
+
+                    echo "📂 Moving to project directory..."
+                    cd /root/todoapp   # 👈 अपने Django प्रोजेक्ट का सही path यहाँ रख (currently सही है)
+
                     echo "▶️ Starting new Django server..."
                     source venv/bin/activate
                     nohup python3 manage.py runserver 0.0.0.0:8001 > server.log 2>&1 &
