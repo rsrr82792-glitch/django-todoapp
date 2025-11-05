@@ -1,0 +1,9 @@
+nohup: ignoring input
+/home/ubuntu/django-todoapp/venv/lib/python3.12/site-packages/gunicorn/util.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+[2025-11-05 13:05:56 +0000] [6851] [INFO] Starting gunicorn 20.1.0
+[2025-11-05 13:05:56 +0000] [6851] [INFO] Listening at: http://0.0.0.0:8000 (6851)
+[2025-11-05 13:05:56 +0000] [6851] [INFO] Using worker: sync
+[2025-11-05 13:05:56 +0000] [6852] [INFO] Booting worker with pid: 6852
+[2025-11-05 13:05:56 +0000] [6853] [INFO] Booting worker with pid: 6853
+[2025-11-05 13:05:56 +0000] [6854] [INFO] Booting worker with pid: 6854
