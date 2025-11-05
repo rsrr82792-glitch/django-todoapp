@@ -1,4 +1,4 @@
-#!/root/todoapp/venv/bin/python3
+#!/home/ubuntu/django-todoapp/venv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
